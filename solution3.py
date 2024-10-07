@@ -2,16 +2,16 @@ import requests
 import hmac
 import hashlib
 
-# Skapa ett 1000x1000 rutnät med alla lysdioder släckta (False)
+#Skapa ett 1000x1000 rutnät med alla lysdioder släckta (False)
 grid_size = 1000
 panel = [[False for _ in range(grid_size)] for _ in range(grid_size)]
 
-# Läs in instruktionerna från filen "contr-instr.txt"
+#läs in instruktionerna från filen "contr-instr.txt"
 def read_instructions_from_file(filename):
     with open(filename, 'r') as file:
         return file.readlines()
 
-# Bearbeta varje instruktion och uppdatera panelen
+#bearbeta varje instruktion och uppdatera panelen
 def process_instruction(instruction):
     instruction = instruction.strip()
     print(f"Bearbetar instruktion: {instruction}")  # Debug: Visa varje instruktion
@@ -33,7 +33,7 @@ def process_instruction(instruction):
     
     print(f"Åtgärd: {action}, från ({x1},{y1}) till ({x2},{y2})")  # Debug: Visa vilka koordinater vi arbetar med
     
-    # Uppdatera panelens tillstånd baserat på instruktionen
+    #uppdatera panelens tillstånd baserat på instruktionen
     for x in range(x1, x2 + 1):
         for y in range(y1, y2 + 1):
             if action == "on":
